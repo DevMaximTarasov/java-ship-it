@@ -2,10 +2,10 @@ package ru.yandex.practicum.delivery.parcel;
 
 public abstract class Parcel {
     //добавьте реализацию и другие необходимые классы
-    private String description;
-    private int weight;
-    private String deliveryAddress;
-    private int sendDay;
+    protected String description;
+    protected int weight;
+    protected String deliveryAddress;
+    protected int sendDay;
 
     public Parcel(String description, int weight, String deliveryAddress, int sendDay) {
         this.description = description;
@@ -24,24 +24,8 @@ public abstract class Parcel {
                 '}';
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public int getSendDay() {
-        return sendDay;
-    }
-
     public void setSendDay(int sendDay) {
         this.sendDay = sendDay;
-    }
-
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
     }
 
     public int getWeight() {
@@ -53,15 +37,15 @@ public abstract class Parcel {
     }
 
     public void packageItem() {
-        System.out.println("Посылка <<" + this.getDescription() + ">> упакована");
+        System.out.println("Посылка <<" + this.description+ ">> упакована");
     }
 
     public void deliver() {
-        System.out.println("Посылка <<" + this.getDescription() + ">> доставлена по адресу " + this.getDeliveryAddress());
+        System.out.println("Посылка <<" + this.description + ">> доставлена по адресу " + this.deliveryAddress);
     }
 
     public int calculateDeliveryCost() {
-        return getWeight() * getFixCost();
+        return weight * getFixCost();
     }
 
     abstract int getFixCost();

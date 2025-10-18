@@ -69,9 +69,12 @@ public class DeliveryCostTest {
 
     @Test
     public void standardParcelShouldNotBeAddedToBoxIfWeightMoreThanMaximum() {
-        int startSize = standardParcelBox.getAllParcels().size();
-        standardParcel.setWeight(120);
+        int startSize;
+        StandardParcel standardParcelTwo =
+                new StandardParcel("Standard Parcel", 41, "Moscow", 10);
         standardParcelBox.addParcel(standardParcel);
+        startSize = standardParcelBox.getAllParcels().size();
+        standardParcelBox.addParcel(standardParcelTwo);
         assertEquals(startSize, standardParcelBox.getAllParcels().size());
 
     }
@@ -86,7 +89,7 @@ public class DeliveryCostTest {
     @Test
     public void fragileParcelShouldNotBeAddedToBoxIfWeightMoreThanMaximum() {
         int startSize = fragileParcelBox.getAllParcels().size();
-        fragileParcel.setWeight(50);
+        fragileParcel.setWeight(51);
         fragileParcelBox.addParcel(fragileParcel);
         assertEquals(startSize, fragileParcelBox.getAllParcels().size());
 

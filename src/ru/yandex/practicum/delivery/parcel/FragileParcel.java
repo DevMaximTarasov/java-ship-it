@@ -12,7 +12,7 @@ public class FragileParcel extends Parcel implements Trackable {
 
     @Override
     public void packageItem(){
-        System.out.println("Посылка <<" + this.getDescription() +">> обёрнута в защитную плёнку");
+        System.out.println("Посылка <<" + this.description +">> обёрнута в защитную плёнку");
     }
 
     @Override
@@ -22,7 +22,7 @@ public class FragileParcel extends Parcel implements Trackable {
 
     @Override
     public void reportStatus(String newLocation) {
-        this.setDeliveryAddress(newLocation);
-        System.out.printf("Хрупкая посылка <<'%s'>> изменила местоположение на '%s'%n", this.getDescription(), newLocation);
+        this.deliveryAddress = newLocation;
+        System.out.printf("Хрупкая посылка <<'%s'>> изменила местоположение на '%s'%n", this.description, this.deliveryAddress);
     }
 }
